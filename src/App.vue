@@ -1,16 +1,18 @@
 <template>
   <div style="padding: 20px">
-    <h1>CCX Vue 3 + Vite (JS)</h1>
-    <p>Hello, Vue 3 in JavaScript!</p>
+    <h1>CCX Vue 3 + TS + Vite</h1>
+    <p>Hello, TypeScript + Vue 3!</p>
   </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { defineComponent } from "vue";
+
+export default defineComponent({
   name: "App",
-};
+});
 </script>
 
-<style>
-/* 这里可以放置一些全局样式或 scoped 样式 */
+<style scoped>
+/* 可选：示例 Scoped CSS */
 </style>
