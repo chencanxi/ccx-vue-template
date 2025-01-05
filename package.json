@@ -1,0 +1,17 @@
+{
+  "name": "ccx-vue-template",
+  "version": "1.0.0",
+  "description": "A minimal Vue 3 template using Vite (JavaScript)",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "vue": "^3.3.4"
+  },
+  "devDependencies": {
+    "vite": "^4.3.0",
+    "@vitejs/plugin-vue": "^4.1.0"
+  }
+}
