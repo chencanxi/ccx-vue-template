@@ -1,14 +1,9 @@
 <template>
-  <div style="padding: 20px">
-    <h1>CCX Vue 3 + Vite (JS)</h1>
-    <p>Hello, Vue 3 in JavaScript!</p>
-  </div>
+  <router-view />
 </template>
 
-<script>
-export default {
-  name: "App",
-};
+<script setup>
+// 在这里可以放置全局的组件逻辑
 </script>
 
 <style>
