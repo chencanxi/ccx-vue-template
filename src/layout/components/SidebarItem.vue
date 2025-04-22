@@ -104,14 +104,51 @@ const hasOneShowingChild = (children = [], parent) => {
  * 解析路径
  */
 const resolvePath = (routePath) => {
+  // 处理外部链接
   if (isExternal(routePath)) {
     return routePath;
   }
   if (isExternal(props.basePath)) {
     return props.basePath;
   }
-  return props.basePath.startsWith("/")
-    ? `${props.basePath}${routePath ? `/${routePath}` : ""}`
-    : `/${props.basePath}${routePath ? `/${routePath}` : ""}`;
+
+  // 空路径处理
+  if (!routePath) {
+    return props.basePath;
+  }
+
+  // 规范化路径，确保没有重复的斜杠
+  let path = "";
+
+  // 处理basePath
+  if (props.basePath) {
+    // 确保basePath有头没有尾斜杠
+    path = props.basePath.startsWith("/")
+      ? props.basePath
+      : `/${props.basePath}`;
+
+    path = path.endsWith("/") ? path.slice(0, -1) : path;
+  } else {
+    path = "";
+  }
+
+  // 处理routePath
+  if (routePath) {
+    // 确保routePath有头没有尾斜杠
+    routePath = routePath.startsWith("/") ? routePath : `/${routePath}`;
+
+    routePath = routePath.endsWith("/") ? routePath.slice(0, -1) : routePath;
+  }
+
+  // 拼接路径，避免双斜杠
+  if (path && routePath) {
+    return `${path}${routePath}`;
+  } else if (path) {
+    return path;
+  } else if (routePath) {
+    return routePath;
+  } else {
+    return "/";
+  }
 };
 </script>

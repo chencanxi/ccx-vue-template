@@ -16,25 +16,21 @@ const routes = [
         component: () => import('../views/home/index.vue'),
         meta: { title: '首页', icon: 'HomeFilled' }
       },
-      {
-        path: 'about',
-        name: 'About',
-        component: () => import('../views/about/index.vue'),
-        meta: { title: '关于', icon: 'InfoFilled' }
-      }
     ]
   },
   {
     path: '/login',
     name: 'Login',
     component: () => import('../views/login/index.vue'),
-    meta: { title: '登录' }
+    meta: { title: '登录' },
+    hidden: true // 在侧边栏中隐藏
   },
   {
     path: '/:pathMatch(.*)*',
     name: 'NotFound',
     component: () => import('../views/error/404.vue'),
-    meta: { title: '404' }
+    meta: { title: '404' },
+    hidden: true // 在侧边栏中隐藏
   }
 ];
 
